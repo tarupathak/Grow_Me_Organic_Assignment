@@ -1,8 +1,11 @@
 import React from 'react'
+import FirstPage from './First Page/FirstPage'
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+    <FirstPage />
+    </div>
   )
 }
 

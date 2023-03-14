@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15vh;
+  
+  }
+  
+  #auth {
+    flex-direction: column;
+    padding: 5vh;
+    justify-content: center;
+    width: 518px;
+    height: 506px;
+    left: 461px;
+    top: 107px;
+    block-size: fit-content;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 5px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  
+  #heading {
+    text-align: center;
+    color: #443c68;
+  }
+  
+  .box {
+    width: 444px;
+    height: 60px;
+    /* margin-bottom: 5vh;
+    */
+    border-radius: 1vh;
+    border-color: #443c68;
+    padding-left: 2vh; 
+  }
+  
+  #submit {
+    width: 444px;
+    height: 50px;
+    background: #443c68;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 3vh;
+    margin-top: 1vh;
+    cursor: pointer;
+  }
+  
+  .lab{
+      color:#443c68;
+      font-size: 2.4vh;
+  }
+  
+  .valid{
+      margin-bottom: 2vh;
+      color:red;
+      visibility: hidden;
+  }
+  
