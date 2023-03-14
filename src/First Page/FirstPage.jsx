@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./FirstPage.css";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 function Authentication() {
+  const navHandler = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [number, setNumber] = useState(0);
@@ -59,6 +63,20 @@ function Authentication() {
     }
   }
 
+  function handleSubmit() {
+    if(name && email && number)
+    {
+      localStorage.setItem('name', name);
+      localStorage.setItem('phoneNumber', number);
+      localStorage.setItem('email', email);
+      navHandler('');
+    }
+    else{
+      toast.dismiss();
+      toast.error('Enter your details correctly!');
+    }
+  }
+
   return (
     <div id="form">
       <div id="auth">
@@ -96,8 +114,9 @@ function Authentication() {
         <p className="valid" id="invalidNum">
           Enter a valid phone number with 10 digits.
         </p>
-        <button id="submit">Submit</button>
+        <button onClick={handleSubmit} id="submit">Submit</button>
       </div>
+      <ToastContainer theme="light" position="top-right" />
     </div>
   );
 }
