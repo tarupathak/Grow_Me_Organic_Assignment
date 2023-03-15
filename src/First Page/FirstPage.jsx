@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FirstPage.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Authentication() {
   const navHandler = useNavigate();

@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import "../Second Page/SeconPage.css";
+import Tab from "./Tab";
 
 function SecondPage() {
   const name = localStorage.getItem("name") || "";
   const email = localStorage.getItem("email") || "";
   const number = localStorage.getItem("number") || "";
-  const navHandler = useNavigate();
 
   
 
@@ -23,6 +22,7 @@ function SecondPage() {
           <b>Email :</b> {email}
         </p>
       </div>
+      <Tab />
     </div>
   );
 }
