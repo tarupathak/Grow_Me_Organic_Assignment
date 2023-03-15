@@ -23,3 +23,8 @@
   margin: 0 2vw;
   overflow-x: hidden;
 }
+
+thead{
+  display:flex;
+  flex-direction: row;
+}

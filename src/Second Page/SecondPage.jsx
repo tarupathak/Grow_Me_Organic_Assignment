@@ -1,6 +1,6 @@
 import React from "react";
 import "../Second Page/SeconPage.css";
-import Tab from "./Tab";
+import Table from "./Table";
 
 function SecondPage() {
   const name = localStorage.getItem("name") || "";
@@ -22,7 +22,7 @@ function SecondPage() {
           <b>Email :</b> {email}
         </p>
       </div>
-      <Tab />
+      <Table />
     </div>
   );
 }

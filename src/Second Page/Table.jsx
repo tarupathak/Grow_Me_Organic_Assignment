@@ -17,7 +17,6 @@ function Tab() {
 
   return (
     <div>
-      USERS:
       <table>
         <thead>
           <tr>
