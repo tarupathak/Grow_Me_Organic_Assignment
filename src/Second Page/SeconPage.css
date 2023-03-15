@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Manrope&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +7,7 @@
 }
 
 #details {
+  z-index: 2;
   margin-left: 44vw;
   margin-top: 5vh;
   background-color: white;
@@ -17,14 +20,38 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  font-family: 'Manrope';
 }
 
 #details p {
   margin: 0 2vw;
   overflow-x: hidden;
+  font-family: 'Manrope';
+}
+
+table{
+  position:absolute;
+   left: 50%;
+   margin-top: 260vh;
+   transform: translate(-50%,-50%);
+   width: 90vw;
+   height: fit-content;
+   border-collapse: collapse;
+   border-spacing: 0;
+   border-radius: 12px 12px 0 0;
+   overflow: hidden;
+   box-shadow: 0 5px 12px rgba(32,32,32,0.3);
+   background: white;
+   text-align: center;
 }
 
 thead{
-  display:flex;
-  flex-direction: row;
+  background: #443c68;
+  color:aliceblue;
+  font-family: 'Garamond';
+}
+
+tbody{
+  font-family: 'Manrope';
+  color:#443c68;
 }

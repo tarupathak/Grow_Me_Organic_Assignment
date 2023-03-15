@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../Second Page/SeconPage.css";
 
 function Tab() {
   const [data, setData] = useState([]);
