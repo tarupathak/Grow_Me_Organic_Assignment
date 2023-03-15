@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./FirstPage.css";
-import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Authentication() {
   const navHandler = useNavigate();
@@ -10,11 +10,17 @@ function Authentication() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState(0);
 
+  
+
   function handleName(e) {
-    if (/^[a-zA-Z ]*$/.test(e.target.value) || e.target.value == "") {
+    if (/^[a-zA-Z ]*$/.test(e.target.value) || e.target.value === "") {
       setName(e.target.value);
       document.getElementById("invalidName").style.visibility = "hidden";
-      document.getElementById("name").style.borderColor = "green";
+      if (e.target.value === "") {
+        document.getElementById("name").style.borderColor = "#443C68";
+      } else {
+        document.getElementById("name").style.borderColor = "green";
+      }
     } else {
       setName("");
       document.getElementById("invalidName").style.visibility = "visible";
@@ -35,13 +41,14 @@ function Authentication() {
         document.getElementById("uname").style.borderColor = "green";
       }
     } else {
+      setEmail("");
       document.getElementById("invalidEmail").style.visibility = "visible";
       document.getElementById("uname").style.borderColor = "red";
     }
   }
 
   function handlePhone(e) {
-    if (/^[0-9]*$/.test(e.target.value)) {
+    if (/^[0-9]*$/.test(e.target.value) && e.target.value !== "") {
       if (e.target.value >= 1000000000 && e.target.value <= 1000000000000) {
         setNumber(e.target.value);
         document.getElementById("invalidNum").style.visibility = "hidden";
@@ -64,19 +71,19 @@ function Authentication() {
   }
 
   function handleSubmit() {
-    if(name && email && number)
-    {
-      localStorage.setItem('name', name);
-      localStorage.setItem('phoneNumber', number);
-      localStorage.setItem('email', email);
-      navHandler('');
-    }
-    else{
+    if (name && email && number) {
+      localStorage.setItem("name", name);
+      localStorage.setItem('number', number
+      );
+      localStorage.setItem("email", email);
+      navHandler("/details");
+    } else {
       toast.dismiss();
-      toast.error('Enter your details correctly!');
+      toast.error("Enter your details correctly!");
     }
   }
 
+ 
   return (
     <div id="form">
       <div id="auth">
@@ -86,6 +93,7 @@ function Authentication() {
           className="box"
           placeholder="Name"
           id="name"
+          onClick={handleEmail}
           onChange={handleName}
           required
         />
@@ -97,6 +105,7 @@ function Authentication() {
           className="box"
           placeholder="Username"
           id="uname"
+          onClick={handleEmail}
           onChange={handleEmail}
           required
         />
@@ -108,13 +117,16 @@ function Authentication() {
           className="box"
           placeholder="Phone number"
           id="phone"
+          onClick={handlePhone}
           onChange={handlePhone}
           required
         />
         <p className="valid" id="invalidNum">
           Enter a valid phone number with 10 digits.
         </p>
-        <button onClick={handleSubmit} id="submit">Submit</button>
+        <button onClick={handleSubmit} id="submit">
+          Submit
+        </button>
       </div>
       <ToastContainer theme="light" position="top-right" />
     </div>
